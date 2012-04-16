@@ -10,16 +10,16 @@ describe('PhoneCat App', function () {
 
         it('should filter the phone list as user types into the search box', function () {
 
-            expect(repeater('.phones li').count()).toBe(2);
+            expect(repeater('.phones li').count()).toBe(8);
 
             input('query').enter('');
-            expect(repeater('.phones li').count()).toBe(3);
+            expect(repeater('.phones li').count()).toBe(20);
 
             input('query').enter('nexus');
             expect(repeater('.phones li').count()).toBe(1);
 
             input('query').enter('motorola');
-            expect(repeater('.phones li').count()).toBe(2);
+            expect(repeater('.phones li').count()).toBe(8);
         });
 
         it('should display the current filter value within an element with id "status"', function () {

@@ -1,16 +1,17 @@
 ﻿/* App Controllers */
 
-function PhoneListCtrl() {
-    var ctrl = this;
+function PhoneListCtrl($xhr) {
+    var self = this;
+
+    $xhr('GET', 'phones/phones.json', function (code, response) {
+        self.phones = response;
+    });
+
     var count = 0;
-    this.hello = function () {
-        console.debug(this);
+    self.hello = function () {
+        console.debug(self);
         return "Hello, World! (" + count++ + ")";
     }
-    this.orderProp = 'age';
-    this.query = "Motor";
-    this.phones = [
-        { "name": "Nexus S", "snippet": "Fast just got faster with Nexus S.", "age": 0 },
-        { "name": "Motorola XOOM™ with Wi-Fi", "snippet": "The Next, Next Generation tablet.", "age": 1 },
-        { "name": "MOTOROLA XOOM™", "snippet": "The Next, Next Generation tablet.", "age": 2}];
+    self.orderProp = 'age';
+    self.query = "Motor";
 }
