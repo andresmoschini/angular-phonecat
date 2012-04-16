@@ -7,17 +7,34 @@
 </head>
 <body>
   <h1>{{hello()}}</h1>
-  Fulltext Search: <input name="query"/>
+
+  <ul class="controls">
+    <li>
+      Search: <input type="text" name="query"/>
+    </li>
+    <li>
+      Sort by:
+      <select name="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+      </select>
+    </li>
+  </ul>
+
   <p>Total number of phones: {{phones.length}}</p>
   <ul class="phones">
-    <li ng:repeat="phone in phones.$filter(query)">
+    <li ng:repeat="phone in phones.$filter(query).$orderBy(orderProp)">
      {{phone.name}}
      <p>{{phone.snippet}}</p>
     </li>
   </ul>
+
   Fulltext Search: <input name="query"/>
+
   <p id="status">Current filter: {{query}}</p>
   <hr />
+  <h3>orderProp</h3>
+  <pre>{{orderProp}}</pre>
   <h3>Raw phones data</h3>
   <pre>
 {{phones}}
