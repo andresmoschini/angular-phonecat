@@ -41,5 +41,11 @@ describe('PhoneCat App', function () {
             expect(repeater('.phones li', 'Phone List').column('phone.name')).
                 toEqual(["MOTOROLA XOOM\u2122", "Motorola XOOM\u2122 with Wi-Fi"]);
         });
+
+        it('should render phone specific links', function () {
+            input('query').enter('nexus');
+            element('.phones li a').click();
+            expect(browser().location().url()).toBe('/phones/nexus-s');
+        });
     });
 });
