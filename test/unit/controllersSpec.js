@@ -7,7 +7,7 @@ describe('PhoneCat controllers', function () {
 
         it('should create "phones" model with 3 phones', function () {
             var scope = {};
-            var ctrl = new PhoneListCtrl(scope);
+            var ctrl = new PhoneListCtrl(scope); 
 
             expect(scope.phones.length).toBe(3);
         });
