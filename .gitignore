@@ -6,3 +6,7 @@ build.xml
 .project
 .settings
 .idea/*
+
+
+#Visual Studio
+*.suo
