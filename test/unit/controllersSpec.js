@@ -1,4 +1,14 @@
 'use strict';
+/// <reference path="../lib/jasmine/jasmine-html.js" />
+/// <reference path="../lib/jasmine/jasmine.js" />
+/// <reference path="../lib/angular/angular-mocks.js" />
+/// <reference path="../../app/lib/angular/angular.js" />
+/// <reference path="../../app/js/app.js" />
+/// <reference path="../../app/js/services.js" />
+/// <reference path="../../app/js/controllers.js" />
+/// <reference path="../../app/js/directives.js" />
+/// <reference path="../../app/js/filters.js" />
+
 
 /* jasmine specs for controllers go here */
 describe('PhoneCat controllers', function () {

@@ -1,3 +1,4 @@
+/// <reference path="../lib/angular/angular-scenario.js" />
 'use strict';
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
@@ -5,6 +6,7 @@
 describe('PhoneCat App', function () {
 
     it('should redirect index.html to index.html#/phones', function () {
+
         browser().navigateTo('../../app/index.html');
         expect(browser().location().url()).toBe('/phones');
     });
@@ -28,7 +30,7 @@ describe('PhoneCat App', function () {
         it('should display the current filter value within an element with id "status"', function () {
             expect(element('#status').text()).toMatch(/Current filter: \s*$/);
 
-            input('query').enter('nexus'); 
+            input('query').enter('nexus');
 
             expect(element('#status').text()).toMatch(/Current filter: nexus\s*$/);
 
@@ -61,9 +63,14 @@ describe('PhoneCat App', function () {
             browser().navigateTo('../../app/index.html#/phones/nexus-s');
         });
 
-
         it('should display nexus-s page', function () {
             expect(binding('phone.name')).toBe('Nexus S');
+        });
+
+        it('Nexus S details page should display 4 thumbnail images', function () {
+            expect(repeater('.phone-thumbs li').count()).toBe(4);
+            //es lo mismo?
+            //expect(element('.phone-thumbs li').count()).toBe(4);
         });
     });
 });
