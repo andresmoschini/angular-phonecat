@@ -25,11 +25,11 @@ describe('PhoneCat controllers', function () {
             ctrl = $controller(PhoneListCtrl, { $scope: scope });
         }));
 
-        it('should create "phones" model with 2 phones fetched from xhr', function() {
+        it('should create "phones" model with 2 phones fetched from xhr', function () {
             expect(scope.phones).toBeUndefined();
             $httpBackend.flush();
             expect(scope.phones)
-                .toEqual([{name: 'Nexus S'}, {name: 'Motorola DROID'}]);
+                .toEqual([{ name: 'Nexus S' }, { name: 'Motorola DROID'}]);
         });
 
         it('should create "phones" model with 2 phones', function () {
@@ -44,10 +44,16 @@ describe('PhoneCat controllers', function () {
 
     describe('PhoneDetailCtrl', function () {
         var scope, $httpBackend, ctrl;
+        var xyzPhoneData = function () {
+            return {
+                name: 'phone xyz',
+                images: ['image/url1.png', 'image/url2.png']
+            }
+        };
 
         beforeEach(inject(function (_$httpBackend_, $rootScope, $routeParams, $controller) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('phones/xyz.json').respond({ name: 'phone xyz' });
+            $httpBackend.expectGET('phones/xyz.json').respond(xyzPhoneData());
 
             $routeParams.phoneId = 'xyz';
             scope = $rootScope.$new();
@@ -59,7 +65,23 @@ describe('PhoneCat controllers', function () {
             expect(scope.phone).toBeUndefined();
             $httpBackend.flush();
 
-            expect(scope.phone).toEqual({ name: 'phone xyz' });
+            expect(scope.phone).toEqual(xyzPhoneData());
+        });
+
+        it('should be default image', function () {
+            expect(scope.mainImageUrl).toBeUndefined();
+            $httpBackend.flush();
+
+            expect(scope.mainImageUrl).toEqual(xyzPhoneData().images[0]);
+        });
+
+        it('should change the image', function () {
+            $httpBackend.flush();
+            expect(scope.mainImageUrl).toNotEqual(xyzPhoneData().images[1]);
+
+            scope.setImage(xyzPhoneData().images[1]);
+
+            expect(scope.mainImageUrl).toEqual(xyzPhoneData().images[1]);
         });
     });
 });

@@ -67,10 +67,17 @@ describe('PhoneCat App', function () {
             expect(binding('phone.name')).toBe('Nexus S');
         });
 
-        it('Nexus S details page should display 4 thumbnail images', function () {
-            expect(repeater('.phone-thumbs li').count()).toBe(4);
-            //es lo mismo?
-            //expect(element('.phone-thumbs li').count()).toBe(4);
+        it('should display the first phone image as the main phone image', function () {
+            expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.0.jpg');
         });
+
+        it('should swap main image if a thumbnail image is clicked on', function () {
+            element('.phone-thumbs li:nth-child(3) img').click();
+            expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.2.jpg');
+
+            element('.phone-thumbs li:nth-child(1) img').click();
+            expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.0.jpg');
+        });
+
     });
 });
