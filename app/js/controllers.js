@@ -16,7 +16,7 @@ function PhoneListCtrl($scope, $http) {
 function PhoneDetailCtrl($scope, $routeParams, $http) {
     $http.get('phones/' + $routeParams.phoneId + '.json').success(function (data) {
         $scope.phone = data;
-        console.debug(data);
+        //console.debug(data);
     });
     $scope.ahora = new Date();
 }
