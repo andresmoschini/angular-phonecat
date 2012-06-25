@@ -5,7 +5,7 @@
 angular.module('phonecat', ['phonecatFilters']).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.
-            when('/phones', { template: 'partials/phone-list.html', controller: PhoneListCtrl }).
-            when('/phones/:phoneId', { template: 'partials/phone-detail.html', controller: PhoneDetailCtrl }).
+            when('/phones', { templateUrl: 'partials/phone-list.html', controller: PhoneListCtrl }).
+            when('/phones/:phoneId', { templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl }).
             otherwise({ redirectTo: '/phones' });
  }]);
