@@ -1,3 +1,7 @@
+# Self-training 
+
+[See here demos and stuff](in http://andresmoschini.github.com/angular-phonecat)
+
 # AngularJS Phone Catalog Tutorial Application
 
 ## Overview
