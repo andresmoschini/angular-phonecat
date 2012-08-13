@@ -13,7 +13,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  <title>Index to all my steps</title>
+  <title>AngularJS Self-Training</title>
 </head>
 
 <body>
@@ -30,6 +30,28 @@
 				<h1>AngularJs tutorial</h1>
 				<p><a href="http://angularjs.org/">AngularJs</a> is an open-source JavaScript framework useful to create single page applications.</p>
 				<p>HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic views in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting environment is extraordinarily expressive, readable, and quick to develop.</p>
+				
+				<h2>Proof of concept</h2>
+				<p>Lets start with the end, to show it before boring you. After finish the tutorial, I wanted to test AngularJS in a real environment. I tried to apply it replacing a real part of a real system.</p>
+
+				<p>We are working in a HR System, you can play with it <a href="http://commonjobs.apphb.com">here</a>. Well, I have been replacing the <a href="http://commonjobs.apphb.com/Employees/Index/">old employee search page</a> with <a style="font-weight: bolder;" href="http://commonjobs.apphb.com/angulardemo/employees">a new AngularJS powered employee search page</a></strong>, both look as the same, in fact, the only new features are related to address bar using HTML5 History API AngularJS features and pluralization in result count message. But the code of Angular version is nicer (although not enough nice yet).</p>
+
+				<p>In a couple of places I had to modify Angular source code, in others I had to take ugly workarounds:</p>
+
+				<ul>
+				<li><a href="https://github.com/angular/angular.js/pull/1151">Allow change browser URL without reinitialize controller status</a></li>
+				<li><a href="https://github.com/angular/angular.js/pull/1147">Add support to Catch-All routes</a></li>
+				<li><a href="https://github.com/andresmoschini/CommonJobs/blob/learning-angular/source/CommonJobs/CommonJobs.Mvc.UI/app/js/controllers.js#L97">Property name dependent on View repeater name</a></li>
+				<li><a href="https://github.com/andresmoschini/CommonJobs/blob/learning-angular/source/CommonJobs/CommonJobs.Mvc.UI/app/partials/employee-list.html#L40">Using <code>_target</code> to fix link behavior</a> </li>
+				<li><a href="https://github.com/andresmoschini/CommonJobs/blob/learning-angular/source/CommonJobs/CommonJobs.Mvc.UI/app/js/controllers.js#L40">Writing weir code because it is not possible to cancel AJAX requests</a></li>
+				</ul>
+
+				<p>I am not as sure about maturity of AngularJS, I think that it is a little difficult to do some common things and documentation is not so clear that it seems to be at the first look. For that reason I prefer to finish my AngularJS self-training here and then, maybe, go deeper in some other Javascript framework like knockout or backbone.</p>
+				
+				<h2>Other considerations</h2>
+				<p>It was really nice and interesting play and discover some useful tools like <a href="http://pages.github.com/">GitHub Pages</a> and <a href="https://appharbor.com/">AppHarbor</a>. Both are really powerful tools that we can take advantage in our self-trainings.</p>
+				
+				<h2>The Tutorial</h2>
 				<p>I was following the <a href="http://docs.angularjs.org/tutorial/">official AngularJs tutorial</a> and this is the result:</p>
 				
 				<h3>Step 0 - Bootstraping</h3>
